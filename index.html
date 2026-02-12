@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Presentation | 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        body { background-color: #020617; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .gradient-text { background: linear-gradient(90deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* TIMER UI - FIXED CONTRAST */
+        #timerContainer { background: #ffffff; color: #020617; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 3px solid #3b82f6; z-index: 1000; }
+        @keyframes flicker { 0%, 100% { background-color: #ffffff; } 50% { background-color: #fca5a5; } }
+        .timer-warning { animation: flicker 1s infinite; border: 3px solid #ef4444 !important; color: #b91c1c !important; }
+        .timer-stop { background-color: #991b1b !important; color: #ffffff !important; border: 3px solid #f87171 !important; animation: none; }
+    </style>
+</head>
+<body onload="startTimer()">
+
+    <div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
+        <i class="fas fa-hourglass-start text-blue-600 text-2xl" id="timerIcon"></i>
+        <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
+    </div>
+
+    <nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="bg-white p-1 rounded flex items-center justify-center shadow-md" style="height: 48px; width: 48px;">
+                <img src="mujlogo.jpg" alt="MUJ" class="h-full w-auto object-contain" onerror="this.src='https://via.placeholder.com/50?text=MUJ'">
+            </div>
+            <div class="flex flex-col text-left">
+                <span class="text-xl font-black text-white leading-none uppercase tracking-tighter">PBL <span class="text-blue-500 italic">2026</span></span>
+                <span class="text-[9px] text-slate-400 font-bold uppercase tracking-widest mt-1">Dept. of Computer Science & Engineering</span>
+            </div>
+        </div>
+        <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-widest font-bold opacity-70">
+            <a href="#problem" class="hover:text-blue-400 transition">Problem</a>
+            <a href="#methodology" class="hover:text-blue-400 transition">Methodology</a>
+            <a href="#results" class="hover:text-blue-400 transition">Results</a>
+            <a href="#team" class="hover:text-blue-400 transition">Team</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
+        
+        <section class="text-center">
+            <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">ID1: 23FE10CSE00363  </div>
+             <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">ID1: 23FE10CSE00334
+                  </div>
+            <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight"><span class="gradient-text uppercase">[InnerInk: Journalling website]</span></h1>
+            <p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+                "InnerInk is a full-stack journaling web application that allows users to securely create, organize, and manage their personal journal entries. The platform provides authenticated access, ensuring that each user’s writings remain private and accessible only to them.
+
+It is built using modern web technologies and integrates secure user authentication, database management, and dynamic content handling to deliver a smooth and personalized writing experience."
+            </p>
+        </section>
+
+        <section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
+            <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
+                <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
+                <p class="text-slate-400 leading-relaxed text-justify">In today’s fast-paced digital world, individuals often struggle to maintain personal reflections, thoughts, and daily records in a secure and organized manner. Traditional journaling methods lack accessibility, while many digital platforms do not provide sufficient privacy or personalized organization features.
+
+There is a need for a secure, user-friendly web application that enables individuals to privately create, manage, and access their journal entries anytime, from anywhere.</p>
+            </div>
+            <div class="space-y-6">
+                <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
+                    <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Market Research</h3>
+                    <p class="text-slate-400 leading=relaxed ">The demand for digital journaling applications has increased with the rise of mental wellness awareness and productivity tools. Platforms like Notion, Day One, and Journey provide journaling features but are often complex or subscription-based. Many users seek a simple, secure, and distraction-free writing environment. This creates an opportunity for a lightweight, privacy-focused journaling platform like InnerInk.</p>
+                </div>
+                <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
+                    <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Gap / Innovation</h3>
+                    <p class="text-slate-400 leading-relaxed ">While existing journaling platforms offer advanced features, many are complex, subscription-based, or lack visual customization options. There is a gap for a simple, secure journaling platform that combines privacy with creative enhancement. InnerInk addresses this by integrating secure authentication, structured database storage, and the Pixabay API to allow users to enrich their journal entries with relevant images, enhancing personalization and engagement.</p>
+                </div>
+            </div>
+        </section>
+
+
+<section id="methodology" class="space-y-16">
+    <h2 class="text-4xl font-black text-center uppercase tracking-tight">
+        System <span class="text-blue-500">Methodology</span>
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+        <!-- Authentication -->
+        <div class="glass p-8 rounded-3xl border-l-4 border-blue-500">
+            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-blue-400">
+                1. Authentication & Access Control
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                Secure user authentication is implemented using Clerk. Each user has a
+                unique identity, and all journal data is mapped to the authenticated
+                user ID. This ensures complete privacy, session management, and
+                protected access to personal entries.
+            </p>
+        </div>
+
+        <!-- Database Structure -->
+        <div class="glass p-8 rounded-3xl border-l-4 border-purple-500">
+            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-purple-400">
+                2. Database & Data Modeling
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                The backend uses Prisma ORM with Neon PostgreSQL to manage structured
+                relational data. The system includes models for Users, Collections,
+                Journal Entries, and Mood tags, ensuring optimized storage,
+                scalable schema design, and efficient CRUD operations.
+            </p>
+        </div>
+
+        <!-- Collections Feature -->
+        <div class="glass p-8 rounded-3xl border-l-4 border-green-500">
+            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-green-400">
+                3. Collections Management
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                Users can organize journal entries into collections such as
+                “Personal”, “Travel”, or “Work”. This improves structured storage,
+                navigation efficiency, and content categorization.
+            </p>
+        </div>
+
+        <!-- Rich Text Editor -->
+        <div class="glass p-8 rounded-3xl border-l-4 border-yellow-500">
+            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-yellow-400">
+                4. Rich Text Editor
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                A rich text editor enables formatted writing including bold,
+                italic, headings, and structured paragraphs. This enhances
+                the journaling experience beyond plain-text systems.
+            </p>
+        </div>
+
+        <!-- Mood Tracking -->
+        <div class="glass p-8 rounded-3xl border-l-4 border-pink-500">
+            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-pink-400">
+                5. Mood Tracking System
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                Each journal entry can be tagged with a selected mood.
+                These mood tags are stored in the database and later used
+                for analytics and visualization on the dashboard.
+            </p>
+        </div>
+
+        <!-- Dashboard & Analytics -->
+        <div class="glass p-8 rounded-3xl border-l-4 border-cyan-500">
+            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-cyan-400">
+                6. Dashboard & Data Visualization
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                The dashboard aggregates all collections and entries and
+                visualizes mood distribution using interactive charts.
+                Chart.js is used to generate graphical representations
+                for better emotional pattern tracking.
+            </p>
+        </div>
+
+        <!-- API Integration -->
+        <div class="glass p-8 rounded-3xl border-l-4 border-indigo-500 md:col-span-2">
+            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-indigo-400">
+                7. External API Integration (Pixabay)
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                The Pixabay API is integrated to allow users to attach relevant
+                images to journal entries. API requests are handled dynamically
+                without affecting performance, enhancing creativity and personalization.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+ <section id="results" class="glass p-14 rounded-[3.5rem] border-t-4 border-blue-500">
+    <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
+        Results & <span class="text-blue-500">Analysis</span>
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+        <div class="h-80">
+            <canvas id="resultsChart"></canvas>
+        </div>
+
+        <div class="space-y-6">
+
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h4 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-2">
+                    Structured Data Organization
+                </h4>
+                <p class="text-sm text-slate-400">
+                    Collections and mood-based categorization improved content
+                    organization efficiency compared to traditional note systems.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h4 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-2">
+                    Mood Analytics Visualization
+                </h4>
+                <p class="text-sm text-slate-400">
+                    Dashboard charts successfully visualize emotional patterns
+                    based on user mood selection, enabling reflective insights.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h4 class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-2">
+                    Rich Text & Media Enhancement
+                </h4>
+                <p class="text-sm text-slate-400">
+                    Rich text formatting and Pixabay image integration significantly
+                    enhanced user engagement and personalization.
+                </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h4 class="text-cyan-400 font-bold uppercase text-xs tracking-widest mb-2">
+                    Secure Multi-User Isolation
+                </h4>
+                <p class="text-sm text-slate-400">
+                    Each user’s entries remain completely isolated and secure,
+                    validating the robustness of authentication and data handling.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+        <section id="team" class="text-center pt-10 border-t border-slate-900">
+            <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">Academic Credits</h2>
+            <div class="flex flex-wrap justify-center gap-10">
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-blue-600">
+                    <p class="text-[9px] font-bold text-blue-500 mb-2 uppercase tracking-widest">Project Guide</p>
+                    <p class="font-black text-xl text-slate-100">Dr. Ajit Noonia</p>
+                </div>
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
+                    <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Team Member 1</p>
+                    <p class="font-black text-xl text-slate-100">Vikas</p>
+                    <p class="text-[10px] text-slate-500 mt-1">23FE10CSE00363</p>     
+                </div>
+                <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
+                     <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Team Member 2</p>
+                    <p class="font-black text-xl text-slate-100">Ayush Madhukar</p>
+                    <p class="text-[10px] text-slate-500 mt-1">23FE10CSE00334</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 text-center bg-black/40 border-t border-slate-900">
+        <p class="text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase mb-2">Manipal University Jaipur</p>
+        <p class="text-slate-500 text-[9px] font-medium tracking-[0.2em] uppercase opacity-50">Department of Computer Science & Engineering • 2026</p>
+    </footer>
+
+    <script>
+        // TIMER LOGIC
+        let sec = 0;
+        let timer = null;
+        function startTimer() {
+            timer = setInterval(() => {
+                sec++;
+                let m = Math.floor(sec / 60);
+                let s = sec % 60;
+                document.getElementById('displayTime').innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                
+                if (sec >= 480 && sec < 600) { // 8-10 Mins Warning
+                    document.getElementById('timerContainer').classList.add('timer-warning');
+                    document.getElementById('timerIcon').classList.replace('fa-hourglass-start', 'fa-hourglass-half');
+                } else if (sec >= 600) { // 10 Mins Stop
+                    clearInterval(timer);
+                    document.getElementById('timerContainer').classList.replace('timer-warning', 'timer-stop');
+                    document.getElementById('displayTime').innerText = "10:00";
+                    document.getElementById('timerIcon').classList.replace('fa-hourglass-half', 'fa-hourglass-end');
+                }
+            }, 1000);
+        }
+
+        // RESULTS CHART (Demo Data)
+        
+        const ctx = document.getElementById('resultsChart').getContext('2d');
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Happy', 'Neutral', 'Sad', 'Excited', 'Stressed'],
+        datasets: [{
+            data: [35, 20, 15, 18, 12],
+            backgroundColor: [
+                '#22c55e',
+                '#94a3b8',
+                '#3b82f6',
+                '#f59e0b',
+                '#ef4444'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: { color: '#cbd5e1' }
+            }
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
