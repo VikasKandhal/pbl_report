@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBL Presentation | 2026</title>
+    <title>PBL Presentation | Prept 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,21 +12,27 @@
         body { background-color: #020617; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .gradient-text { background: linear-gradient(90deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* TIMER UI - FIXED CONTRAST */
+        .gold-text { background: linear-gradient(90deg, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* TIMER UI */
         #timerContainer { background: #ffffff; color: #020617; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border: 3px solid #3b82f6; z-index: 1000; }
         @keyframes flicker { 0%, 100% { background-color: #ffffff; } 50% { background-color: #fca5a5; } }
         .timer-warning { animation: flicker 1s infinite; border: 3px solid #ef4444 !important; color: #b91c1c !important; }
         .timer-stop { background-color: #991b1b !important; color: #ffffff !important; border: 3px solid #f87171 !important; animation: none; }
+
+        /* Tech badge */
+        .tech-badge { display: inline-block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 3px 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; margin: 3px; }
     </style>
 </head>
 <body onload="startTimer()">
 
+    <!-- TIMER -->
     <div id="timerContainer" class="fixed bottom-10 right-10 px-8 py-4 rounded-3xl flex items-center gap-4 transition-all">
         <i class="fas fa-hourglass-start text-blue-600 text-2xl" id="timerIcon"></i>
         <span id="displayTime" class="text-4xl font-black font-mono tracking-tighter">00:00</span>
     </div>
 
+    <!-- NAV -->
     <nav class="fixed w-full z-50 glass border-b border-slate-800/50 px-8 py-4 flex justify-between items-center">
         <div class="flex items-center gap-4">
             <div class="bg-white p-1 rounded flex items-center justify-center shadow-md" style="height: 48px; width: 48px;">
@@ -47,268 +52,221 @@
     </nav>
 
     <main class="max-w-6xl mx-auto px-6 pt-48 pb-32 space-y-32">
-        
+
+        <!-- HERO -->
         <section class="text-center">
-            <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">ID1: 23FE10CSE00363  </div>
-             <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">ID1: 23FE10CSE00334
-                  </div>
-            <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight"><span class="gradient-text uppercase">[InnerInk: Journalling website]</span></h1>
-            <p class="text-slate-400 max-w-2xl mx-auto italic text-lg leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
-                "InnerInk is a full-stack journaling web application that allows users to securely create, organize, and manage their personal journal entries. The platform provides authenticated access, ensuring that each user’s writings remain private and accessible only to them.
-
-It is built using modern web technologies and integrates secure user authentication, database management, and dynamic content handling to deliver a smooth and personalized writing experience."
+            <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-3 uppercase tracking-widest">ID1: 23FE10CSE00363</div>
+            <div class="inline-block px-4 py-1 border border-slate-800 rounded-full text-slate-500 text-[10px] font-mono mb-6 uppercase tracking-widest">ID2: 23FE10CSE00334</div>
+            <h1 class="text-6xl md:text-7xl font-extrabold mb-8 uppercase leading-tight">
+                <span class="gradient-text uppercase">PREPT</span>
+            </h1>
+            <p class="text-slate-300 font-bold text-lg mb-3 tracking-wide">An AI-Powered Mock Interview Marketplace</p>
+            <p class="text-slate-400 max-w-2xl mx-auto italic text-base leading-relaxed border-l-2 border-blue-500/30 pl-6 text-left">
+                "Prept is a full-stack, AI-powered mock interview marketplace that bridges the gap between software engineering candidates and experienced engineers from top-tier companies like Google, Amazon, Meta, Microsoft, and Netflix. The platform runs a credit-based economy where interviewees book 1-on-1 sessions, and interviewers earn and withdraw credits — all powered by real-time HD video, persistent chat, and Google Gemini AI for live question generation and post-session feedback."
             </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="https://prept.vercel.app/" target="_blank"
+                   class="px-8 py-3 bg-blue-600 rounded-full text-xs font-black uppercase tracking-widest hover:bg-blue-500 transition shadow-lg shadow-blue-900/40">
+                    Visit Live Website
+                </a>
+                <a href="#methodology"
+                   class="px-8 py-3 border border-slate-700 rounded-full text-xs font-black uppercase tracking-widest hover:border-blue-500 transition">
+                    Explore Features
+                </a>
+            </div>
 
-               <div class="mt-8">
-    <a href="https://journalling-app-alpha.vercel.app/" target="_blank"
-       class="px-8 py-3 bg-blue-600 rounded-full text-xs font-black uppercase tracking-widest hover:bg-blue-500 transition shadow-lg shadow-blue-900/40">
-        Visit Live Website
-    </a>
-</div>
+            <!-- Tech Stack Badges -->
+            <div class="mt-10 flex flex-wrap justify-center">
+                <span class="tech-badge text-blue-400">Next.js 16</span>
+                <span class="tech-badge text-purple-400">React 19</span>
+                <span class="tech-badge text-green-400">PostgreSQL</span>
+                <span class="tech-badge text-yellow-400">Prisma ORM</span>
+                <span class="tech-badge text-pink-400">Clerk Auth</span>
+                <span class="tech-badge text-cyan-400">Stream Video SDK</span>
+                <span class="tech-badge text-orange-400">Google Gemini AI</span>
+                <span class="tech-badge text-indigo-400">Arcjet Security</span>
+                <span class="tech-badge text-red-400">Resend Email</span>
+                <span class="tech-badge text-slate-300">Tailwind CSS v4</span>
+            </div>
         </section>
 
-      
-
+        <!-- PROBLEM STATEMENT -->
         <section id="problem" class="grid md:grid-cols-2 gap-12 items-stretch">
             <div class="glass p-10 rounded-[2.5rem] flex flex-col justify-center border-l-4 border-blue-600">
                 <h2 class="text-3xl font-extrabold mb-6">Problem Statement</h2>
-                <p class="text-slate-400 leading-relaxed text-justify">In today’s fast-paced digital world, individuals often struggle to maintain personal reflections, thoughts, and daily records in a secure and organized manner. Traditional journaling methods lack accessibility, while many digital platforms do not provide sufficient privacy or personalized organization features.
-
-There is a need for a secure, user-friendly web application that enables individuals to privately create, manage, and access their journal entries anytime, from anywhere.</p>
+                <p class="text-slate-400 leading-relaxed text-justify">
+                    Software engineering interview preparation is fragmented and ineffective. Platforms like LeetCode offer algorithmic practice but lack real human feedback and conversational dynamics. General-purpose video tools have no interview-specific features. Finding a FAANG engineer for a private mock interview is expensive and network-dependent. No single platform integrates scheduling, HD video, AI question generation, structured AI feedback, and a credit-based payment system in one product.
+                </p>
             </div>
             <div class="space-y-6">
                 <div class="glass p-7 rounded-3xl border-r-4 border-blue-500/50">
                     <h3 class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-2">Market Research</h3>
-                    <p class="text-slate-400 leading=relaxed ">The demand for digital journaling applications has increased with the rise of mental wellness awareness and productivity tools. Platforms like Notion, Day One, and Journey provide journaling features but are often complex or subscription-based. Many users seek a simple, secure, and distraction-free writing environment. This creates an opportunity for a lightweight, privacy-focused journaling platform like InnerInk.</p>
+                    <p class="text-slate-400 leading-relaxed">The demand for quality technical interview prep has surged with rising competition for software engineering roles at FAANG companies. Platforms like Pramp, interviewing.io, and Exponent offer mock interviews but lack deep AI integration, real-time question generation, and a structured feedback engine. Prept captures this gap with a fully integrated, AI-first marketplace accessible to all engineers.</p>
                 </div>
                 <div class="glass p-7 rounded-3xl border-r-4 border-purple-500/50">
                     <h3 class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-2">Research Gap / Innovation</h3>
-                    <p class="text-slate-400 leading-relaxed ">While existing journaling platforms offer advanced features, many are complex, subscription-based, or lack visual customization options. There is a gap for a simple, secure journaling platform that combines privacy with creative enhancement. InnerInk addresses this by integrating secure authentication, structured database storage, and the Pixabay API to allow users to enrich their journal entries with relevant images, enhancing personalization and engagement.</p>
+                    <p class="text-slate-400 leading-relaxed">Existing platforms either simulate interviews with AI bots (lacking human nuance) or connect peers without expert feedback. Prept's innovation lies in combining verified FAANG expert interviewers with Google Gemini AI for live question generation and post-interview structured feedback — delivering both human insight and AI precision within a single, credit-gated session economy.</p>
                 </div>
             </div>
         </section>
 
+        <!-- METHODOLOGY -->
+        <section id="methodology" class="space-y-16">
+            <h2 class="text-4xl font-black text-center uppercase tracking-tight">
+                System <span class="text-blue-500">Methodology</span>
+            </h2>
 
-<section id="methodology" class="space-y-16">
-    <h2 class="text-4xl font-black text-center uppercase tracking-tight">
-        System <span class="text-blue-500">Methodology</span>
-    </h2>
+            <div class="grid md:grid-cols-2 gap-10">
 
-    <div class="grid md:grid-cols-2 gap-10">
+                <div class="glass p-8 rounded-3xl border-l-4 border-blue-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-blue-400">1. Authentication & Onboarding</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Clerk handles full authentication with JWT-secured sessions. On every login, checkUser() syncs the Clerk session to PostgreSQL, creating a new User record on first sign-in. The onboarding flow assigns roles (INTERVIEWEE / INTERVIEWER), collects profile bio and interview categories, and persists data via a Server Action. Clerk Billing detects the active subscription plan (free/starter/pro) on each session.
+                    </p>
+                </div>
 
-        <!-- Authentication -->
-        <div class="glass p-8 rounded-3xl border-l-4 border-blue-500">
-            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-blue-400">
-                1. Authentication & Access Control
-            </h3>
-            <p class="text-sm text-slate-400 leading-relaxed text-justify">
-                Secure user authentication is implemented using Clerk. Each user has a
-                unique identity, and all journal data is mapped to the authenticated
-                user ID. This ensures complete privacy, session management, and
-                protected access to personal entries.
-            </p>
-        </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-purple-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-purple-400">2. Credit-Based Economy</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Three subscription tiers — Free ($0/1 cr), Starter ($29/5 cr), Pro ($69/15 cr) — gate platform features. Credits roll over monthly and are allocated atomically on login. All credit movements (booking deductions, interviewer earnings, withdrawals) are executed via Prisma database transactions to guarantee financial integrity with a complete CreditTransaction audit trail.
+                    </p>
+                </div>
 
-        <!-- Database Structure -->
-        <div class="glass p-8 rounded-3xl border-l-4 border-purple-500">
-            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-purple-400">
-                2. Database & Data Modeling
-            </h3>
-            <p class="text-sm text-slate-400 leading-relaxed text-justify">
-                The backend uses Prisma ORM with Neon PostgreSQL to manage structured
-                relational data. The system includes models for Users, Collections,
-                Journal Entries, and Mood tags, ensuring optimized storage,
-                scalable schema design, and efficient CRUD operations.
-            </p>
-        </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-green-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-green-400">3. Slot Booking & Scheduling</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Interviewers define a daily availability window; the system auto-generates 45-minute discrete slots, hides past slots, and marks booked slots as unavailable. The bookSlot() Server Action atomically validates credit balance, detects conflicts at database level, deducts credits from the interviewee, awards credits to the interviewer, and provisions Stream Video and Chat resources for the session.
+                    </p>
+                </div>
 
-        <!-- Collections Feature -->
-        <div class="glass p-8 rounded-3xl border-l-4 border-green-500">
-            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-green-400">
-                3. Collections Management
-            </h3>
-            <p class="text-sm text-slate-400 leading-relaxed text-justify">
-                Users can organize journal entries into collections such as
-                “Personal”, “Travel”, or “Work”. This improves structured storage,
-                navigation efficiency, and content categorization.
-            </p>
-        </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-yellow-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-yellow-400">4. HD Video Call Module</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Each booking is linked to a unique Stream Video call ID. The Stream Video SDK powers 1080p HD video calls with screen sharing, automatic transcription (starts on first participant join), and session recording for Pro subscribers. Both parties are registered as 'host' members. The AI Question Panel is embedded directly within the call UI for real-time interviewer use.
+                    </p>
+                </div>
 
-        <!-- Rich Text Editor -->
-        <div class="glass p-8 rounded-3xl border-l-4 border-yellow-500">
-            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-yellow-400">
-                4. Rich Text Editor
-            </h3>
-            <p class="text-sm text-slate-400 leading-relaxed text-justify">
-                A rich text editor enables formatted writing including bold,
-                italic, headings, and structured paragraphs. This enhances
-                the journaling experience beyond plain-text systems.
-            </p>
-        </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-pink-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-pink-400">5. AI Question Generator</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Powered by Google Gemini 2.5 Flash Lite. The interviewer triggers the generator during a live session; a category-aware prompt (Frontend, Backend, DSA, System Design, Behavioral, DevOps, Mobile) returns 6 contextual questions with model answers in under 3 seconds. This eliminates question preparation overhead for interviewers and ensures session relevance for every category.
+                    </p>
+                </div>
 
-        <!-- Mood Tracking -->
-        <div class="glass p-8 rounded-3xl border-l-4 border-pink-500">
-            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-pink-400">
-                5. Mood Tracking System
-            </h3>
-            <p class="text-sm text-slate-400 leading-relaxed text-justify">
-                Each journal entry can be tagged with a selected mood.
-                These mood tags are stored in the database and later used
-                for analytics and visualization on the dashboard.
-            </p>
-        </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-cyan-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-cyan-400">6. AI Feedback Report Engine</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Post-session, the interviewer submits a structured 8-field form covering: Summary, Technical Depth, Communication Quality, Problem-Solving Approach, Strengths, Improvements, Recommendation (HIRE / NO_HIRE / CONSIDER), and Overall Rating. The data is stored in the Feedback table and presented to the interviewee as a detailed, structured AI feedback report accessible from the Appointments page.
+                    </p>
+                </div>
 
-        <!-- Dashboard & Analytics -->
-        <div class="glass p-8 rounded-3xl border-l-4 border-cyan-500">
-            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-cyan-400">
-                6. Dashboard & Data Visualization
-            </h3>
-            <p class="text-sm text-slate-400 leading-relaxed text-justify">
-                The dashboard aggregates all collections and entries and
-                visualizes mood distribution using interactive charts.
-                Chart.js is used to generate graphical representations
-                for better emotional pattern tracking.
-            </p>
-        </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-indigo-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-indigo-400">7. Persistent Chat (Stream Chat SDK)</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Every confirmed booking provisions a dedicated Stream Chat channel accessible before, during, and after the session. This enables pre-session preparation, real-time notes sharing during the call, and post-session follow-up — replacing the need for any external messaging tool and keeping all communication within the Prept platform context.
+                    </p>
+                </div>
 
-        <!-- API Integration -->
-        <div class="glass p-8 rounded-3xl border-l-4 border-indigo-500 md:col-span-2">
-            <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-indigo-400">
-                7. External API Integration (Pixabay)
-            </h3>
-            <p class="text-sm text-slate-400 leading-relaxed text-justify">
-                The Pixabay API is integrated to allow users to attach relevant
-                images to journal entries. API requests are handled dynamically
-                without affecting performance, enhancing creativity and personalization.
-            </p>
-        </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-red-500">
+                    <h3 class="font-bold mb-3 uppercase text-xs tracking-widest text-red-400">8. Security & Rate Limiting (Arcjet)</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed text-justify">
+                        Arcjet's token-bucket algorithm enforces rate limiting on sensitive endpoints — fingerprinted by Clerk user ID rather than IP address to prevent bypass. The booking endpoint is capped at 5 requests/hour per user; the 6th attempt returns HTTP 429. All API routes are JWT-authenticated via Clerk. HTTPS is enforced across all routes with environment variables stored in Vercel.
+                    </p>
+                </div>
 
-    </div>
-</section>
-
-
- <section id="results" class="glass p-14 rounded-[3.5rem] border-t-4 border-blue-500">
-    <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-        Results & <span class="text-blue-500">Analysis</span>
-    </h2>
-
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-
-        <div class="h-80">
-            <canvas id="resultsChart"></canvas>
-        </div>
-
-        <div class="space-y-6">
-
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h4 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-2">
-                    Structured Data Organization
-                </h4>
-                <p class="text-sm text-slate-400">
-                    Collections and mood-based categorization improved content
-                    organization efficiency compared to traditional note systems.
-                </p>
             </div>
+        </section>
 
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h4 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-2">
-                    Mood Analytics Visualization
-                </h4>
-                <p class="text-sm text-slate-400">
-                    Dashboard charts successfully visualize emotional patterns
-                    based on user mood selection, enabling reflective insights.
-                </p>
+        <!-- RESULTS & ANALYSIS -->
+        <section id="results" class="glass p-14 rounded-[3.5rem] border-t-4 border-blue-500">
+            <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
+                Results & <span class="text-blue-500">Analysis</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+
+                <div class="h-80">
+                    <canvas id="resultsChart"></canvas>
+                </div>
+
+                <div class="space-y-6">
+
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <h4 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-2">AI Question Generation</h4>
+                        <p class="text-sm text-slate-400">
+                            Gemini 2.5 Flash Lite tested across all 8 categories. Average question generation time under 3 seconds per set of 6 questions with model answers. Category-aware prompts confirmed to produce highly relevant, role-specific questions.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <h4 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-2">Credit Economy Integrity</h4>
+                        <p class="text-sm text-slate-400">
+                            Prisma atomic transactions verified under concurrent booking simulation. Zero credit loss or double-deduction observed. Full CreditTransaction audit trail maintained across all booking, earning, and withdrawal operations.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <h4 class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-2">User Acceptance Testing (UAT)</h4>
+                        <p class="text-sm text-slate-400">
+                            UAT conducted with 5 participants (3 interviewees, 2 interviewers) across 6 core tasks. All tasks accepted with an average satisfaction score of 4.6/5. Booking flow, feedback report, and AI question panel scored highest.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <h4 class="text-cyan-400 font-bold uppercase text-xs tracking-widest mb-2">Security & Rate Limiting</h4>
+                        <p class="text-sm text-slate-400">
+                            Arcjet rate limiting confirmed: 6th booking attempt within 1 hour returns HTTP 429. Fingerprinting by Clerk user ID (not IP) prevents bypass via VPN or proxy. All 12 functional requirements implemented and validated.
+                        </p>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h4 class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-2">
-                    Rich Text & Media Enhancement
-                </h4>
-                <p class="text-sm text-slate-400">
-                    Rich text formatting and Pixabay image integration significantly
-                    enhanced user engagement and personalization.
-                </p>
+        <!-- FUTURE SCOPE -->
+        <section id="future" class="glass p-14 rounded-[3.5rem] border-t-4 border-purple-500">
+            <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
+                Future <span class="text-purple-500">Scope</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <h4 class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-3">Stripe Payment Integration</h4>
+                    <p class="text-sm text-slate-400">Direct Stripe integration for real-money credit purchases and interviewer payouts, replacing the current manual admin payout workflow with automated, instant transfers.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <h4 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-3">AI Interviewer Matching</h4>
+                    <p class="text-sm text-slate-400">A Gemini embedding-based recommendation engine that matches candidates to interviewers based on target company, role level, and historical feedback patterns for personalized interview preparation.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <h4 class="text-green-400 font-bold uppercase text-xs tracking-widest mb-3">Collaborative Code Editor</h4>
+                    <p class="text-sm text-slate-400">In-call real-time collaborative code editor (CoderPad-style) for DSA and system design sessions, eliminating screen sharing for coding tasks and enabling execution within the platform.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <h4 class="text-cyan-400 font-bold uppercase text-xs tracking-widest mb-3">Native Mobile App</h4>
+                    <p class="text-sm text-slate-400">React Native (Expo) cross-platform application providing a dedicated candidate experience with push notification reminders for upcoming sessions and on-the-go feedback access.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <h4 class="text-yellow-400 font-bold uppercase text-xs tracking-widest mb-3">Interviewer Verification</h4>
+                    <p class="text-sm text-slate-400">LinkedIn OAuth-based employment verification to confirm that interviewers genuinely work at the companies listed on their profiles, building candidate trust and marketplace credibility.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                    <h4 class="text-pink-400 font-bold uppercase text-xs tracking-widest mb-3">Advanced Candidate Analytics</h4>
+                    <p class="text-sm text-slate-400">Dashboard tracking improvement across multiple sessions — rating trends, recurring weaknesses, target company readiness scores, and predicted hire probability based on feedback history.</p>
+                </div>
+
             </div>
-
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h4 class="text-cyan-400 font-bold uppercase text-xs tracking-widest mb-2">
-                    Secure Multi-User Isolation
-                </h4>
-                <p class="text-sm text-slate-400">
-                    Each user’s entries remain completely isolated and secure,
-                    validating the robustness of authentication and data handling.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="future" class="glass p-14 rounded-[3.5rem] border-t-4 border-purple-500">
-    <h2 class="text-3xl font-black mb-12 text-center uppercase tracking-tight">
-        Future <span class="text-purple-500">Scope</span>
-    </h2>
-
-    <div class="grid md:grid-cols-2 gap-10">
-
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <h4 class="text-purple-400 font-bold uppercase text-xs tracking-widest mb-3">
-                Advanced Mood Analytics
-            </h4>
-            <p class="text-sm text-slate-400">
-                Implement AI-based sentiment analysis to automatically detect mood
-                from journal text and provide deeper emotional insights.
-            </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <h4 class="text-blue-400 font-bold uppercase text-xs tracking-widest mb-3">
-                Cloud Backup & Export
-            </h4>
-            <p class="text-sm text-slate-400">
-                Enable PDF export, encrypted backups, and cross-device synchronization
-                for improved data portability and reliability.
-            </p>
-        </div>
-
-        
-
-        <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <h4 class="text-cyan-400 font-bold uppercase text-xs tracking-widest mb-3">
-                Enhanced Personalization
-            </h4>
-            <p class="text-sm text-slate-400">
-                Introduce theme customization, reminders, and habit tracking
-                to increase user engagement and productivity.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<div class="mt-8 text-center">
-    <img src="class-diagram.png" class="rounded-xl shadow-lg mx-auto max-w-full" alt="Class Diagram">
-</div>
-
-<div class="mt-8 text-center">
-    <img src="use-case-diagram.png" class="rounded-xl shadow-lg mx-auto max-w-full" alt="Class Diagram">
-</div>
-
-<div class="mt-8 text-center">
-    <img src="0-level-dfd.png" class="rounded-xl shadow-lg mx-auto max-w-full" alt="Class Diagram">
-</div>
-
-<div class="mt-8 text-center">
-    <img src="1-level=dfd.png" class="rounded-xl shadow-lg mx-auto max-w-full" alt="Class Diagram">
-</div>
-
-<div class="mt-8 text-center">
-    <img src="2-level-dfd.png" class="rounded-xl shadow-lg mx-auto max-w-full" alt="Class Diagram">
-</div>
+        </section>
 
 
 
-
+        <!-- TEAM -->
         <section id="team" class="text-center pt-10 border-t border-slate-900">
             <h2 class="text-[10px] font-black text-slate-600 uppercase tracking-[0.5em] mb-12">Academic Credits</h2>
             <div class="flex flex-wrap justify-center gap-10">
@@ -319,15 +277,16 @@ There is a need for a secure, user-friendly web application that enables individ
                 <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
                     <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Team Member 1</p>
                     <p class="font-black text-xl text-slate-100">Vikas</p>
-                    <p class="text-[10px] text-slate-500 mt-1">23FE10CSE00363</p>     
+                    <p class="text-[10px] text-slate-500 mt-1">23FE10CSE00363</p>
                 </div>
                 <div class="glass px-12 py-8 rounded-[2rem] border-b-4 border-slate-700">
-                     <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Team Member 2</p>
+                    <p class="text-[9px] font-bold text-slate-400 mb-2 uppercase tracking-widest">Team Member 2</p>
                     <p class="font-black text-xl text-slate-100">Ayush Madhukar</p>
                     <p class="text-[10px] text-slate-500 mt-1">23FE10CSE00334</p>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="py-12 text-center bg-black/40 border-t border-slate-900">
@@ -335,68 +294,80 @@ There is a need for a secure, user-friendly web application that enables individ
         <p class="text-slate-500 text-[9px] font-medium tracking-[0.2em] uppercase opacity-50">Department of Computer Science & Engineering • 2026</p>
     </footer>
 
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-    /* ================= TIMER ================= */
+        /* ================= TIMER ================= */
+        let sec = 0;
+        const display = document.getElementById('displayTime');
+        const container = document.getElementById('timerContainer');
+        const icon = document.getElementById('timerIcon');
 
-    let sec = 0;
-    const display = document.getElementById('displayTime');
-    const container = document.getElementById('timerContainer');
-    const icon = document.getElementById('timerIcon');
+        const timer = setInterval(() => {
+            sec++;
+            let m = Math.floor(sec / 60);
+            let s = sec % 60;
+            display.innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
 
-    const timer = setInterval(() => {
-        sec++;
+            if (sec >= 360 && sec < 420) {
+                container.classList.add('timer-warning');
+                icon.className = 'fas fa-exclamation-triangle text-red-600 text-2xl';
+            }
+            if (sec >= 420) {
+                clearInterval(timer);
+                container.classList.remove('timer-warning');
+                container.classList.add('timer-stop');
+                display.innerText = "07:00";
+                icon.className = 'fas fa-stop-circle text-white text-2xl';
+            }
+        }, 1000);
 
-        let m = Math.floor(sec / 60);
-        let s = sec % 60;
-
-        display.innerText =
-            `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-
-        // 7 minute stop (change if needed)
-        if (sec >= 420) {  // 7 minutes
-            clearInterval(timer);
-            display.innerText = "07:00";
-        }
-
-    }, 1000);
-
-    /* ================= CHART ================= */
-
-    const canvas = document.getElementById('resultsChart');
-
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Happy', 'Neutral', 'Sad', 'Excited', 'Stressed'],
-                datasets: [{
-                    data: [35, 20, 15, 18, 12],
-                    backgroundColor: [
-                        '#22c55e',
-                        '#94a3b8',
-                        '#3b82f6',
-                        '#f59e0b',
-                        '#ef4444'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: { color: '#cbd5e1' }
+        /* ================= CHART ================= */
+        const canvas = document.getElementById('resultsChart');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Onboarding', 'Booking Flow', 'Video Call', 'AI Questions', 'Feedback', 'Withdrawal'],
+                    datasets: [{
+                        label: 'UAT Score (/5)',
+                        data: [4.8, 4.7, 4.5, 4.5, 4.7, 4.4],
+                        backgroundColor: [
+                            'rgba(96,165,250,0.8)',
+                            'rgba(168,85,247,0.8)',
+                            'rgba(34,197,94,0.8)',
+                            'rgba(251,191,36,0.8)',
+                            'rgba(236,72,153,0.8)',
+                            'rgba(6,182,212,0.8)'
+                        ],
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            min: 4.0,
+                            max: 5.0,
+                            ticks: { color: '#94a3b8', stepSize: 0.2 },
+                            grid: { color: 'rgba(255,255,255,0.05)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8', font: { size: 10 } },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#cbd5e1' } }
                     }
                 }
-            }
-        });
-    }
+            });
+        }
+    });
+    </script>
 
-});
-</script>
-
-
+</body>
+</html>
